@@ -1,0 +1,43 @@
+<div>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h4>Task Creation <a routerLink="/task" class="btn btn-danger float-end">Back</a></h4>
+                
+            </div>
+            <div class="card-body">
+                <div *ngIf="isLoading;else elseForm">
+                    <app-loader :title="LoadingTitle" />
+                </div>
+                <ng-template #elseForm>
+                    <form (ngSubmit)="saveTask()">
+                        <div class="mb-3">
+                            <label>Title</label>
+                            <input type="text" [(ngModel)]="title" name="title" class="form-control">
+                            <span *ngIf="errors.title" class="text-danger">{{errors.title}}</span>
+                        </div>
+                        <div class="mb-3">
+                            <label>Description</label>
+                            <input type="text" [(ngModel)]="description" name="description" class="form-control">
+                            <span *ngIf="errors.description" class="text-danger">{{errors.description}}</span>
+                        </div>
+                        <div class="mb-3">
+                            <label>Due Date</label>
+                            <input type="date" [(ngModel)]="due_date" name="due_date" class="form-control">
+                            <span *ngIf="errors.due_date" class="text-danger">{{errors.due_date}}</span>
+                        </div>
+                        <!--<div class="mb-3">
+                            <label>Status</label>
+                            
+                            <span *ngIf="errors.status" class="text-danger">{{errors.status}}</span>
+                        </div>-->
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                </ng-template>
+                
+            </div>
+        </div>
+    </div>
+</div>
