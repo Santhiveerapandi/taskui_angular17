@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { TaskService } from '../../Services/task.service';
 
@@ -17,20 +16,7 @@ export class TaskCreateComponent {
   Loadingtitle: string = "Loading";
   isLoading: boolean = false;
   constructor(private tasklistservice: TaskService )
-  {
-    // this.getAllStudent();
-  }
-
-  /* getAllStudent()
-  {
-    this.http.get("http://localhost:8000/api/student")
-    .subscribe((resultData: any)=>
-    {
-        this.isResultLoaded = true;
-        console.log(resultData);
-        this.StudentArray = resultData;
-    });
-  } */
+  {}
 
 
   saveTask() {
@@ -50,6 +36,7 @@ export class TaskCreateComponent {
         this.description='';
         this.due_date='';
         this.isLoading = false;
+        this.errors=[];
       },
       error: (err: any) => {
         this.isLoading = false;
